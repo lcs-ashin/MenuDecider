@@ -12,6 +12,7 @@
 		8A79269F2763912B00A6215C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A79269E2763912B00A6215C /* Assets.xcassets */; };
 		8A7926A22763912B00A6215C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A7926A12763912B00A6215C /* Preview Assets.xcassets */; };
 		8A7926AA2763965D00A6215C /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7926A92763965D00A6215C /* Menu.swift */; };
+		8A7926AD27639CD000A6215C /* FoodSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7926AC27639CD000A6215C /* FoodSuggestionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		8A79269E2763912B00A6215C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A7926A12763912B00A6215C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8A7926A92763965D00A6215C /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		8A7926AC27639CD000A6215C /* FoodSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSuggestionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +55,9 @@
 		8A7926992763912500A6215C /* MenuDecider */ = {
 			isa = PBXGroup;
 			children = (
+				8A7926AB27639CA200A6215C /* Views */,
 				8A79269A2763912500A6215C /* MenuDeciderApp.swift */,
 				8A7926A82763963600A6215C /* Model */,
-				8A79269C2763912500A6215C /* ContentView.swift */,
 				8A79269E2763912B00A6215C /* Assets.xcassets */,
 				8A7926A02763912B00A6215C /* Preview Content */,
 			);
@@ -76,6 +78,15 @@
 				8A7926A92763965D00A6215C /* Menu.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8A7926AB27639CA200A6215C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8A79269C2763912500A6215C /* ContentView.swift */,
+				8A7926AC27639CD000A6215C /* FoodSuggestionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +161,7 @@
 			files = (
 				8A7926AA2763965D00A6215C /* Menu.swift in Sources */,
 				8A79269D2763912500A6215C /* ContentView.swift in Sources */,
+				8A7926AD27639CD000A6215C /* FoodSuggestionView.swift in Sources */,
 				8A79269B2763912500A6215C /* MenuDeciderApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -32,7 +32,7 @@ struct ContentView: View {
                 })
                 
                 Button(action: {
-                    print("Lunch recommendation")
+                    isRecommendationShowing = true
                 }, label: {
                     Text("Lunch")
                         .foregroundColor(.primary)
@@ -40,7 +40,7 @@ struct ContentView: View {
                 })
                 
                 Button(action: {
-                    print("Dinner recommendation")
+                    isRecommendationShowing = true
                 }, label: {
                     Text("Dinner")
                         .foregroundColor(.primary)
@@ -51,25 +51,27 @@ struct ContentView: View {
             
             .padding()
             
-            // Menu Recommendation
-            Text(currentMenuForBreakfast.recommendation)
-                .font(.title)
-            // Condition                   True  False
-            .opacity(isRecommendationShowing ? 1.0 : 0.0)
-            
-            // Refresh button
-            Button(action: {
-                currentMenuForBreakfast = listOfBreakfast.randomElement()!
-            }, label: {
-                Image(systemName: "arrow.2.squarepath")
-                    .foregroundColor(.primary)
-                    .font(.title2)
-            })
-                .buttonStyle(.bordered)
-                // Condition                   True  False
-                .opacity(isRecommendationShowing ? 1.0 : 0.0)
-                .padding()
-            
+//            // Menu Recommendation
+//            Text(currentMenuForBreakfast.recommendation)
+//                .font(.title)
+//            // Condition                   True  False
+//            .opacity(isRecommendationShowing ? 1.0 : 0.0)
+//
+//            // Refresh button
+//            Button(action: {
+//                currentMenuForBreakfast = listOfBreakfast.randomElement()!
+//            }, label: {
+//                Image(systemName: "arrow.2.squarepath")
+//                    .foregroundColor(.primary)
+//                    .font(.title2)
+//            })
+//                .buttonStyle(.bordered)
+//                // Condition                   True  False
+//                .opacity(isRecommendationShowing ? 1.0 : 0.0)
+//                .padding()
+            FoodSuggestionView(listOfMenuItems: listOfBreakfast)
+            FoodSuggestionView(listOfMenuItems: listOfLunch)
+            FoodSuggestionView(listOfMenuItems: listOfDinner)
             Spacer()
         }
         .navigationTitle("Menu Decider")
