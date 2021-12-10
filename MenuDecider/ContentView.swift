@@ -8,12 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // MARK: Stored Properties
+    // List of Menu
+    @State var currentMenuForBreakfast: Menu = listOfBreakfast.randomElement()!
+    @State var currentMenuForLunch: Menu = listOfLunch.randomElement()!
+    @State var currentMenuForDinner: Menu = listOfDinner.randomElement()!
+    
+    // Recommendation visible or not
+    @State var isRecommendationShowing = false
+    
+    // MARK: Computed Properties
     var body: some View {
         VStack {
             // Three buttons
             HStack {
                 Button(action: {
-                    print("Breakfast recommendation")
+                  isRecommendationShowing = true
                 }, label: {
                     Text("Breakfast")
                         .foregroundColor(.primary)
@@ -41,18 +52,22 @@ struct ContentView: View {
             .padding()
             
             // Menu Recommendation
-            Text("Omelette")
+            Text(currentMenuForBreakfast.recommendation)
                 .font(.title)
+            // Condition                   True  False
+            .opacity(isRecommendationShowing ? 1.0 : 0.0)
             
             // Refresh button
             Button(action: {
-                print("Refresh")
+                currentMenuForBreakfast = listOfBreakfast.randomElement()!
             }, label: {
                 Image(systemName: "arrow.2.squarepath")
                     .foregroundColor(.primary)
                     .font(.title2)
             })
                 .buttonStyle(.bordered)
+                // Condition                   True  False
+                .opacity(isRecommendationShowing ? 1.0 : 0.0)
                 .padding()
             
             Spacer()
