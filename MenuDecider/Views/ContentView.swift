@@ -16,7 +16,9 @@ struct ContentView: View {
     @State var currentMenuForDinner: Menu = listOfDinner.randomElement()!
     
     // Recommendation visible or not
-    @State var isRecommendationShowing = false
+    @State var isBreakfastRecommendationShowing = false
+    @State var isLunchRecommendationShowing = false
+    @State var isDinnerRecommendationShowing = false
     
     // MARK: Computed Properties
     var body: some View {
@@ -24,7 +26,7 @@ struct ContentView: View {
             // Three buttons
             HStack {
                 Button(action: {
-                  isRecommendationShowing = true
+                  isBreakfastRecommendationShowing = true
                 }, label: {
                     Text("Breakfast")
                         .foregroundColor(.primary)
@@ -32,7 +34,7 @@ struct ContentView: View {
                 })
                 
                 Button(action: {
-                    isRecommendationShowing = true
+                    isLunchRecommendationShowing = true
                 }, label: {
                     Text("Lunch")
                         .foregroundColor(.primary)
@@ -40,7 +42,7 @@ struct ContentView: View {
                 })
                 
                 Button(action: {
-                    isRecommendationShowing = true
+                    isDinnerRecommendationShowing = true
                 }, label: {
                     Text("Dinner")
                         .foregroundColor(.primary)
@@ -51,27 +53,20 @@ struct ContentView: View {
             
             .padding()
             
-//            // Menu Recommendation
-//            Text(currentMenuForBreakfast.recommendation)
-//                .font(.title)
-//            // Condition                   True  False
-//            .opacity(isRecommendationShowing ? 1.0 : 0.0)
-//
-//            // Refresh button
-//            Button(action: {
-//                currentMenuForBreakfast = listOfBreakfast.randomElement()!
-//            }, label: {
-//                Image(systemName: "arrow.2.squarepath")
-//                    .foregroundColor(.primary)
-//                    .font(.title2)
-//            })
-//                .buttonStyle(.bordered)
-//                // Condition                   True  False
-//                .opacity(isRecommendationShowing ? 1.0 : 0.0)
-//                .padding()
-            FoodSuggestionView(listOfMenuItems: listOfBreakfast)
-            FoodSuggestionView(listOfMenuItems: listOfLunch)
-            FoodSuggestionView(listOfMenuItems: listOfDinner)
+            ZStack {
+                FoodSuggestionView(listOfMenuItems: listOfBreakfast)
+                // Condition                           True  False
+                .opacity(isBreakfastRecommendationShowing ? 1.0 : 0.0)
+                
+                FoodSuggestionView(listOfMenuItems: listOfLunch)
+                // Condition                        True  False
+                .opacity(isLunchRecommendationShowing ? 1.0 : 0.0)
+                
+                FoodSuggestionView(listOfMenuItems: listOfDinner)
+                // Condition                         True  False
+                .opacity(isDinnerRecommendationShowing ? 1.0 : 0.0)
+            }
+            
             Spacer()
         }
         .navigationTitle("Menu Decider")
