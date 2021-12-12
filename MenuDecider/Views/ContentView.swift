@@ -27,6 +27,8 @@ struct ContentView: View {
             HStack {
                 Button(action: {
                   isBreakfastRecommendationShowing = true
+                  isLunchRecommendationShowing = false
+                  isDinnerRecommendationShowing = false
                 }, label: {
                     Text("Breakfast")
                         .foregroundColor(.primary)
@@ -34,7 +36,9 @@ struct ContentView: View {
                 })
                 
                 Button(action: {
+                    isBreakfastRecommendationShowing = false
                     isLunchRecommendationShowing = true
+                    isDinnerRecommendationShowing = false
                 }, label: {
                     Text("Lunch")
                         .foregroundColor(.primary)
@@ -42,6 +46,8 @@ struct ContentView: View {
                 })
                 
                 Button(action: {
+                    isBreakfastRecommendationShowing = false
+                    isLunchRecommendationShowing = false
                     isDinnerRecommendationShowing = true
                 }, label: {
                     Text("Dinner")
